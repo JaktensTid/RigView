@@ -111,7 +111,6 @@ def insert_into_database(items):
             del d_c['well_num']
             table_names_c = ', '.join(list(d_c.keys()))
             values_c = ', '.join(['%s' for i in list(d_c.values())])
-            qry += 'ON CONFLICT (contractor, number) DO UPDATE SET (%s)=(%s);' % (table_names_c,values_c)
             cursor.execute(qry, list(d.values()) + list(d.values()))
 
         connection.commit()
