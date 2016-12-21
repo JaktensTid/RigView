@@ -109,9 +109,7 @@ def insert_into_database(items):
             del d_c['well_num_name']
             del d_c['well_name']
             del d_c['well_num']
-            table_names_c = ', '.join(list(d_c.keys()))
-            values_c = ', '.join(['%s' for i in list(d_c.values())])
-            cursor.execute(qry, list(d.values()) + list(d.values()))
+            cursor.execute(qry, list(d.values()))
 
         connection.commit()
 
