@@ -1,1 +1,1 @@
-clock: python DownloadRigViews.py
+worker: python DownloadRigViews.py
