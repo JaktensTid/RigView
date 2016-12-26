@@ -140,6 +140,7 @@ def main():
     insert_into_database(items)
 
 if __name__ == '__main__':
-    print('Cron job started')
-    main()
-    print('Cron job is over')
+    if datetime.today().weekday() == 1:
+        print('Cron job started')
+        main()
+        print('Cron job is over')
