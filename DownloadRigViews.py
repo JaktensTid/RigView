@@ -8,7 +8,6 @@ import os
 import time
 import random
 import psycopg2
-from apscheduler.schedulers.blocking import BlockingScheduler
 
 #Init selenium webdriver
 webdriver = webdriver.PhantomJS(os.path.join(os.path.dirname(__file__),'bin/phantomjs'))
@@ -141,12 +140,6 @@ def main():
     insert_into_database(items)
 
 if __name__ == '__main__':
-    sched = BlockingScheduler()
-
-    @sched.scheduled_job('cron', day_of_week='tue', hour=12)
-    def timed_job():
-        print('Cron job started')
-        main()
-        print('Cron job is over')
-
-    sched.start()
+    print('Cron job started')
+    main()
+    print('Cron job is over')
